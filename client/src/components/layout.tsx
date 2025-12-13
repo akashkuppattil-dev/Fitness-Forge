@@ -121,27 +121,21 @@ export function Footer() {
                 <div className="h-px flex-1 bg-white/10"></div>
               </div>
               <a href="https://wa.me/919497306050" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                <div className="h-8 w-8 rounded-full bg-green-600/20 flex items-center justify-center text-green-500 group-hover:bg-green-600 group-hover:text-white transition-colors">
-                  <Phone className="h-4 w-4" />
-                </div>
+                <Phone className="h-5 w-5 text-primary shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-white">WhatsApp</span>
                   <span className="text-xs">+91 94973 06050</span>
                 </div>
               </a>
               <a href="https://www.instagram.com/fitfab.fitness/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                <div className="h-8 w-8 rounded-full bg-pink-600/20 flex items-center justify-center text-pink-500 group-hover:bg-pink-600 group-hover:text-white transition-colors">
-                  <Instagram className="h-4 w-4" />
-                </div>
+                <Instagram className="h-5 w-5 text-primary shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-white">Instagram</span>
                   <span className="text-xs">@fitfab.fitness</span>
                 </div>
               </a>
               <a href="#" className="flex items-center gap-3 hover:text-white transition-colors group">
-                <div className="h-8 w-8 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  <Facebook className="h-4 w-4" />
-                </div>
+                <Facebook className="h-5 w-5 text-primary shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-sm font-bold text-white">Facebook</span>
                   <span className="text-xs">Fit Fab Family Fitness</span>
@@ -154,7 +148,7 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-6 text-primary uppercase tracking-wider">Location</h3>
             <div className="aspect-square w-full rounded-sm overflow-hidden border border-white/10 bg-black/50 h-[300px]">
                <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.829871790484!2d75.83401737586676!3d11.199342988975344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b6e6f6f6f6f%3A0x6f6f6f6f6f6f6f6f!2sFeroke%2C%20Kozhikode!5e0!3m2!1sen!2sin!4v1715580000000!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.829871790484!2d75.83401737586676!3d11.199342988975344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b6e6f6f6f6f%3A0x6f6f6f6f6f6f6f6f!2sFit+Fab+Family+Fitness+Studio!5e0!3m2!1sen!2sin!4v1715580000000!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
