@@ -1,50 +1,48 @@
 import { motion } from "framer-motion";
-import heroImage from "@assets/stock_images/athletic_woman_fitne_b18176e5.jpg";
-import { Button } from "@/components/ui/button";
+import heroImage from "@assets/image_1765661463397.png";
+import { Link } from "wouter";
 
 export function Hero() {
   return (
-    <section className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-center">
+    <section className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-center justify-center text-center">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Athlete training"
+          alt="Athlete wrapping hands"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-20">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl"
+          className="max-w-4xl mx-auto flex flex-col items-center"
         >
-          <h1 className="text-7xl md:text-9xl font-display font-black text-white leading-[0.9] mb-6 italic">
+          <h1 className="text-7xl md:text-[10rem] font-display font-black text-white leading-[0.8] mb-8 tracking-tighter">
             TRAIN
             <br />
-            <span className="text-primary text-outline">HARD</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/60">HARD</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wide mb-8 max-w-lg border-l-4 border-primary pl-6">
-            PERFECT YOUR BODY.
+          
+          <div className="h-1 w-24 bg-primary mb-8" />
+          
+          <p className="text-xl md:text-3xl text-white font-light tracking-[0.2em] mb-12 uppercase">
+            Perfect Your Body.
             <br />
-            DEFINE YOUR FUTURE.
+            <span className="font-bold text-primary">Define Your Future.</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-primary text-black hover:bg-white hover:text-black font-bold uppercase text-lg px-8 py-6 rounded-none">
-              Start Journey
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-black font-bold uppercase text-lg px-8 py-6 rounded-none">
-              View Schedule
-            </Button>
-          </div>
+          
+          <Link href="#contact">
+            <a className="text-lg font-bold tracking-[0.3em] text-white border-b-2 border-primary pb-1 hover:text-primary transition-colors uppercase">
+              Start Your Journey
+            </a>
+          </Link>
         </motion.div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 right-0 w-1/3 h-2 bg-primary" />
     </section>
   );
 }

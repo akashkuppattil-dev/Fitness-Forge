@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import facilityImage1 from "@assets/stock_images/modern_premium_gym_i_fcf5177c.jpg";
-import facilityImage2 from "@assets/stock_images/gym_weights_dumbbell_ad63a672.jpg"; 
+import facilityImage1 from "@assets/stock_images/energetic_group_work_53ab01ee.jpg";
+import facilityImage2 from "@assets/stock_images/energetic_group_work_460b0d90.jpg"; 
 
 export function Facility() {
   return (
@@ -25,13 +25,13 @@ export function Facility() {
           >
             <img
               src={facilityImage1}
-              alt="Main Gym Floor"
+              alt="Group Workout"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
             <div className="absolute bottom-0 left-0 p-8">
-              <h3 className="text-3xl font-display font-bold text-white mb-2">WORLD CLASS EQUIPMENT</h3>
-              <p className="text-white/80">Imported biomechanically perfect machinery</p>
+              <h3 className="text-3xl font-display font-bold text-white mb-2">HIGH ENERGY ATMOSPHERE</h3>
+              <p className="text-white/80">Train with passion in a motivating environment</p>
             </div>
           </motion.div>
 
@@ -45,13 +45,13 @@ export function Facility() {
             >
                <img
                   src={facilityImage2}
-                  alt="Weights Section"
+                  alt="Strength Training"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                />
-               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                <div className="absolute bottom-0 left-0 p-8">
-                  <h3 className="text-2xl font-display font-bold text-white mb-1">FREE WEIGHTS ZONE</h3>
-                  <p className="text-white/80 text-sm">Extensive range of dumbbells and plates</p>
+                  <h3 className="text-2xl font-display font-bold text-white mb-1">DEDICATED ZONES</h3>
+                  <p className="text-white/80 text-sm">Specialized areas for every discipline</p>
                </div>
             </motion.div>
 

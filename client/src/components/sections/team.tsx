@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import coachFaisal from "@assets/fiza_1765660702966.jpg";
-import coachMidhun from "@assets/min_sur_1765660788360.jpg";
-import coachMidhul from "@assets/midu_1765660822078.jpg";
-import { Badge } from "@/components/ui/badge";
+import { Quote } from "lucide-react";
 
 const coaches = [
   {
@@ -22,7 +20,6 @@ const coaches = [
     id: "midhun",
     name: "Midhun Suresh ZGC",
     role: "Founder & Senior Trainer",
-    image: coachMidhun,
     credentials: [
       "Certified Fitness Trainer",
       "Mr. Calicut (2014, 2020, 2024)",
@@ -35,7 +32,6 @@ const coaches = [
     id: "midhul",
     name: "Midhul AJ",
     role: "Fitness Coach",
-    image: coachMidhul,
     credentials: [
       "Level 4 Certified Fitness Instructor",
       "Mr. South India 2024",
@@ -62,48 +58,47 @@ export function Team() {
 
         <div className="space-y-24">
           {/* Head Coach Section */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative"
+              className="mb-8 relative"
             >
-              <div className="aspect-[3/4] rounded-sm overflow-hidden border border-primary/20 bg-card">
+              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary p-1">
                 <img
                   src={coaches[0].image}
                   alt={coaches[0].name}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 -z-10" />
-              <div className="absolute -top-6 -left-6 w-32 h-32 border border-primary/20 -z-10" />
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-black font-bold px-6 py-1 uppercase tracking-wider text-sm whitespace-nowrap">
+                Head Coach
+              </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-px bg-primary w-12" />
-                <span className="text-primary font-bold uppercase tracking-widest">Head Coach Leadership</span>
-              </div>
               <h3 className="text-5xl font-display font-bold mb-2">{coaches[0].name}</h3>
               <p className="text-xl text-white/60 mb-8 font-medium">{coaches[0].role}</p>
               
-              <ul className="space-y-4 mb-8">
+              <div className="flex flex-wrap justify-center gap-4 mb-10">
                 {coaches[0].credentials.map((cred, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                    <span className="text-lg text-gray-300">{cred}</span>
-                  </li>
+                  <span key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
+                    {cred}
+                  </span>
                 ))}
-              </ul>
+              </div>
               
-              <p className="text-muted-foreground text-lg leading-relaxed border-l-2 border-white/10 pl-6 italic">
-                "{coaches[0].description}"
-              </p>
+              <div className="relative bg-card p-8 md:p-12 border border-white/5 rounded-lg">
+                <Quote className="absolute top-8 left-8 w-8 h-8 text-primary/20" />
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed italic relative z-10">
+                  "Health is wealth. Fitness is not just about the body; it's about discipline, mental strength, and building a lifestyle that lasts. My goal is to guide you through a journey of transformation that goes beyond the gym walls."
+                </p>
+              </div>
             </motion.div>
           </div>
 
@@ -115,7 +110,7 @@ export function Team() {
               <div className="h-px bg-white/10 w-24" />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {coaches.slice(1).map((coach, index) => (
                 <motion.div
                   key={coach.id}
@@ -123,30 +118,20 @@ export function Team() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  className="bg-card border border-white/5 p-8 hover:border-primary/30 transition-colors group"
+                  className="bg-card border border-white/5 p-8 hover:border-primary/30 transition-colors group text-center"
                 >
-                  <div className="flex flex-col sm:flex-row gap-8 items-start">
-                    <div className="w-32 h-32 shrink-0 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
-                      <img
-                        src={coach.image}
-                        alt={coach.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-display font-bold mb-1">{coach.name}</h3>
-                      <p className="text-primary text-sm font-bold uppercase tracking-wider mb-4">{coach.role}</p>
-                      
-                      <ul className="space-y-2">
-                        {coach.credentials.map((cred, i) => (
-                          <li key={i} className="text-sm text-gray-400 flex items-center gap-2">
-                            <span className="w-1 h-1 bg-white/20 rounded-full" />
-                            {cred}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                  <h3 className="text-2xl font-display font-bold mb-2 text-white group-hover:text-primary transition-colors">{coach.name}</h3>
+                  <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6">{coach.role}</p>
+                  
+                  <div className="h-px w-12 bg-white/10 mx-auto mb-6" />
+                  
+                  <ul className="space-y-3">
+                    {coach.credentials.map((cred, i) => (
+                      <li key={i} className="text-sm text-gray-400">
+                        {cred}
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
               ))}
             </div>
