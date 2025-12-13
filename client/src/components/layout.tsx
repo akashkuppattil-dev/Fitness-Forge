@@ -14,9 +14,15 @@ export function Navbar() {
     { href: "#about", label: "About" },
     { href: "#services", label: "Programs" },
     { href: "#team", label: "Coaches" },
-    { href: "#facility", label: "Gallery" },
     { href: "#contact", label: "Contact" },
   ];
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-white/10" data-testid="navbar">
@@ -47,7 +53,7 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <Button variant="default" className="font-bold uppercase px-6" data-testid="button-join-desktop">
+          <Button variant="default" className="font-bold uppercase px-6" data-testid="button-join-desktop" onClick={scrollToContact}>
             Join Now
           </Button>
         </div>
@@ -55,8 +61,8 @@ export function Navbar() {
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon" data-testid="button-menu">
-              <Menu className="h-6 w-6" />
+            <Button variant="ghost" size="icon" className="h-12 w-12" data-testid="button-menu">
+              <Menu className="h-8 w-8" />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] bg-card border-l border-white/10">
@@ -72,7 +78,7 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <Button className="w-full font-bold uppercase" data-testid="button-join-mobile">
+              <Button className="w-full font-bold uppercase" data-testid="button-join-mobile" onClick={() => { setIsOpen(false); scrollToContact(); }}>
                 Join Now
               </Button>
             </div>
@@ -106,16 +112,41 @@ export function Footer() {
                 <span>Feroke, Kozhikode, Kerala</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary shrink-0" />
-                <a href="https://wa.me/919497306050" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
-                  <span>+91 94973 06050</span>
-                  <span className="text-xs bg-green-600 text-white px-2 py-0.5 rounded-full">WhatsApp</span>
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary shrink-0" />
                 <a href="mailto:fitfabfitnessstudio@gmail.com" className="hover:text-white transition-colors">fitfabfitnessstudio@gmail.com</a>
               </div>
+              <div className="flex items-center gap-3 pt-2">
+                <div className="h-px flex-1 bg-white/10"></div>
+                <span className="text-xs uppercase tracking-widest text-white/40">Social & Chat</span>
+                <div className="h-px flex-1 bg-white/10"></div>
+              </div>
+              <a href="https://wa.me/919497306050" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
+                <div className="h-8 w-8 rounded-full bg-green-600/20 flex items-center justify-center text-green-500 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                  <Phone className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-white">WhatsApp</span>
+                  <span className="text-xs">+91 94973 06050</span>
+                </div>
+              </a>
+              <a href="https://www.instagram.com/fitfab.fitness/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
+                <div className="h-8 w-8 rounded-full bg-pink-600/20 flex items-center justify-center text-pink-500 group-hover:bg-pink-600 group-hover:text-white transition-colors">
+                  <Instagram className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-white">Instagram</span>
+                  <span className="text-xs">@fitfab.fitness</span>
+                </div>
+              </a>
+              <a href="#" className="flex items-center gap-3 hover:text-white transition-colors group">
+                <div className="h-8 w-8 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                  <Facebook className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-white">Facebook</span>
+                  <span className="text-xs">Fit Fab Family Fitness</span>
+                </div>
+              </a>
             </div>
           </div>
 
@@ -131,14 +162,6 @@ export function Footer() {
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            </div>
-            <div className="mt-4 flex gap-4">
-              <a href="https://www.instagram.com/fitfab.fitness/" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-black transition-colors" data-testid="link-instagram">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-primary hover:text-black transition-colors" data-testid="link-facebook">
-                <Facebook className="h-5 w-5" />
-              </a>
             </div>
           </div>
         </div>

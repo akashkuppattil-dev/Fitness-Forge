@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import facilityImage1 from "@assets/stock_images/energetic_group_work_53ab01ee.jpg";
 import facilityImage2 from "@assets/stock_images/energetic_group_work_460b0d90.jpg"; 
+import sqFtImage from "@assets/500ooooooo_1765664298612.avif";
+import acImage from "@assets/ac_1765664233826.avif";
 
 export function Facility() {
   return (
@@ -63,9 +65,10 @@ export function Facility() {
                    transition={{ delay: 0.3 }}
                    className="bg-primary/5 border border-primary/10 p-4 flex flex-col justify-center items-center text-center relative overflow-hidden group"
                 >
-                   <img src="@assets/stock_images/gym_equipment_dumbbe_783af068.jpg" alt="Gym Equipment" className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity" />
+                   <img src={sqFtImage} alt="Gym Equipment" className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity" />
                    <h3 className="text-3xl font-display font-black text-primary mb-1 relative z-10">5000+</h3>
                    <p className="text-muted-foreground text-xs font-medium uppercase tracking-widest relative z-10">Sq. Ft.</p>
+                   <p className="text-white/50 text-[10px] uppercase mt-1 relative z-10">Gym Equipment</p>
                 </motion.div>
 
                 <motion.div
@@ -75,9 +78,10 @@ export function Facility() {
                    transition={{ delay: 0.4 }}
                    className="bg-white/5 border border-white/10 p-4 flex flex-col justify-center items-center text-center relative overflow-hidden group"
                 >
-                   <img src="@assets/stock_images/gym_equipment_dumbbe_2f4d4039.jpg" alt="AC Gym" className="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" />
+                   <img src={acImage} alt="AC Gym" className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity" />
                    <h3 className="text-3xl font-display font-black text-white mb-1 relative z-10">AC</h3>
                    <p className="text-muted-foreground text-xs font-medium uppercase tracking-widest relative z-10">Fully Air Conditioned</p>
+                   <p className="text-white/50 text-[10px] uppercase mt-1 relative z-10">Premium Comfort</p>
                 </motion.div>
             </div>
           </div>

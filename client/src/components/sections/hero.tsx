@@ -12,7 +12,7 @@ export function Hero() {
         <img
           src={heroImage}
           alt="Athlete wrapping hands"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center lg:object-[center_30%]"
         />
         <div className="absolute inset-0 bg-black/70" />
       </div>
