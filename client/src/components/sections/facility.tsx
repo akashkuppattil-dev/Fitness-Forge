@@ -61,10 +61,11 @@ export function Facility() {
                    whileInView={{ opacity: 1, x: 0 }}
                    viewport={{ once: true }}
                    transition={{ delay: 0.3 }}
-                   className="bg-primary/5 border border-primary/10 p-4 flex flex-col justify-center items-center text-center relative overflow-hidden"
+                   className="bg-primary/5 border border-primary/10 p-4 flex flex-col justify-center items-center text-center relative overflow-hidden group"
                 >
-                   <h3 className="text-3xl font-display font-black text-primary mb-1">5000+</h3>
-                   <p className="text-muted-foreground text-xs font-medium uppercase tracking-widest">Sq. Ft.</p>
+                   <img src="@assets/stock_images/gym_equipment_dumbbe_783af068.jpg" alt="Gym Equipment" className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity" />
+                   <h3 className="text-3xl font-display font-black text-primary mb-1 relative z-10">5000+</h3>
+                   <p className="text-muted-foreground text-xs font-medium uppercase tracking-widest relative z-10">Sq. Ft.</p>
                 </motion.div>
 
                 <motion.div
@@ -72,10 +73,11 @@ export function Facility() {
                    whileInView={{ opacity: 1, x: 0 }}
                    viewport={{ once: true }}
                    transition={{ delay: 0.4 }}
-                   className="bg-white/5 border border-white/10 p-4 flex flex-col justify-center items-center text-center relative overflow-hidden"
+                   className="bg-white/5 border border-white/10 p-4 flex flex-col justify-center items-center text-center relative overflow-hidden group"
                 >
-                   <h3 className="text-3xl font-display font-black text-white mb-1">AC</h3>
-                   <p className="text-muted-foreground text-xs font-medium uppercase tracking-widest">Fully Air Conditioned</p>
+                   <img src="@assets/stock_images/gym_equipment_dumbbe_2f4d4039.jpg" alt="AC Gym" className="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" />
+                   <h3 className="text-3xl font-display font-black text-white mb-1 relative z-10">AC</h3>
+                   <p className="text-muted-foreground text-xs font-medium uppercase tracking-widest relative z-10">Fully Air Conditioned</p>
                 </motion.div>
             </div>
           </div>

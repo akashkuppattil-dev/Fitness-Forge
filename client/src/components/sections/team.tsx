@@ -50,10 +50,10 @@ export function Team() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-20 pt-16 md:pt-0"
         >
           <span className="text-primary font-bold tracking-widest uppercase mb-2 block">Leadership</span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold">OUR COACHING TEAM</h2>
+          <h2 className="text-4xl md:text-6xl font-display font-bold relative z-10 bg-background/50 inline-block px-4 backdrop-blur-sm rounded-sm">OUR COACHING TEAM</h2>
         </motion.div>
 
         <div className="space-y-24">

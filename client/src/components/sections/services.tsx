@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import serviceBg from "@assets/stock_images/modern_gym_interior__8e15c247.jpg";
+import serviceBg from "@assets/bixing_1765663123180.png";
 import { Dumbbell, Users, Music, Activity } from "lucide-react";
 
 const services = [

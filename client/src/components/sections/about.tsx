@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import aboutBg from "@assets/dummbel_1765662969002.avif";
 
 const aboutPoints = [
   { title: "Brand Philosophy", desc: "Built on discipline, consistency, and transformation. Fitness is a structured lifestyle, not temporary motivation." },
@@ -9,8 +10,18 @@ const aboutPoints = [
 
 export function About() {
   return (
-    <section className="py-24 bg-background relative" id="about">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-background relative overflow-hidden" id="about">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={aboutBg} 
+          alt="Gym Dumbbells" 
+          className="w-full h-full object-cover opacity-20 grayscale"
+        />
+        <div className="absolute inset-0 bg-background/80" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -37,7 +48,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-card border border-white/5 p-6 hover:bg-white/5 transition-colors"
+                className="bg-card/80 backdrop-blur-sm border border-white/5 p-6 hover:bg-white/5 transition-colors"
               >
                 <h3 className="font-display font-bold text-xl mb-3 text-white">{point.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
