@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import coachFaisal from "@assets/fiza_1765660702966.jpg";
-import { Quote } from "lucide-react";
+import { Award, Target, Users2, Shield } from "lucide-react";
 
 const coaches = [
   {
@@ -13,7 +13,8 @@ const coaches = [
       "2nd Dan Black Belt – Taiji Kando",
       "EREPS Level 4 & ACE Certified Coach"
     ],
-    description: "His leadership establishes authority, trust, and coaching standards across the studio.",
+    description: "Leadership that establishes authority, trust, and coaching standards across the studio.",
+    quote: "Health is wealth. Fitness is not just about the body; it's about discipline, mental strength, and building a lifestyle that lasts.",
     featured: true
   },
   {
@@ -42,101 +43,204 @@ const coaches = [
   }
 ];
 
+const teamValues = [
+  {
+    icon: Award,
+    title: "Championship Credentials",
+    desc: "State and national competition winners"
+  },
+  {
+    icon: Target,
+    title: "Precision Training",
+    desc: "Technique-driven, results-focused approach"
+  },
+  {
+    icon: Users2,
+    title: "Member-Centered",
+    desc: "Personalized guidance for every fitness level"
+  },
+  {
+    icon: Shield,
+    title: "Professional Standards",
+    desc: "International certifications & qualifications"
+  }
+];
+
 export function Team() {
   return (
-    <section className="py-24 bg-background" id="team">
-      <div className="container mx-auto px-4">
+    <section className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden" id="team">
+      {/* Decorative Background */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-[150px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
+
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20 pt-32 lg:pt-0 relative z-10"
+          className="text-center mb-20"
         >
-          <span className="text-primary font-bold tracking-widest uppercase mb-2 block">Leadership</span>
-          <h2 className="text-4xl md:text-6xl font-display font-bold relative z-10 bg-background/80 inline-block px-8 py-2 backdrop-blur-md rounded-sm border border-white/5 shadow-2xl">OUR COACHING TEAM</h2>
+          <div className="inline-flex items-center gap-2 mb-4">
+            <div className="h-0.5 w-8 bg-primary" />
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-sm">Leadership</span>
+            <div className="h-0.5 w-8 bg-primary" />
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-white uppercase tracking-tight mb-6">
+            Our Coaching <span className="text-primary">Team</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Professional champions and certified experts dedicated to your transformation.
+          </p>
         </motion.div>
 
-        <div className="space-y-24">
-          {/* Head Coach Section */}
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        {/* Team Values Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-4 gap-6 mb-24"
+        >
+          {teamValues.map((value, index) => (
+            <motion.div
+              key={value.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="text-center p-6 bg-card border border-white/5 hover:border-primary/30 transition-all group"
+            >
+              <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-sm flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                <value.icon className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-display font-bold text-white text-sm uppercase mb-2 tracking-wide">{value.title}</h3>
+              <p className="text-muted-foreground text-xs">{value.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Head Coach - Featured Section */}
+        <div className="mb-32">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* Image Column */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="mb-8 relative"
+              transition={{ duration: 0.8 }}
+              className="relative order-1"
             >
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary p-1">
-                <img
-                  src={coaches[0].image}
-                  alt={coaches[0].name}
-                  className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
-                />
-              </div>
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-black font-bold px-6 py-1 uppercase tracking-wider text-sm whitespace-nowrap">
-                Head Coach
+              <div className="relative w-full max-w-md mx-auto">
+                {/* Decorative Frame */}
+                <div className="absolute -inset-4 border-2 border-primary/20 rounded-sm" />
+                <div className="absolute -inset-2 bg-gradient-to-br from-primary/10 to-transparent rounded-sm" />
+
+                {/* Image Container */}
+                <div className="relative overflow-hidden rounded-sm">
+                  <img
+                    src={coaches[0].image}
+                    alt={coaches[0].name}
+                    className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  />
+
+                  {/* Bottom Badge */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/90 backdrop-blur-sm p-4 border-t border-primary/30">
+                    <p className="text-primary font-display font-bold text-sm uppercase tracking-widest text-center">
+                      Championship Pedigree
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
+            {/* Content Column */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="order-2"
             >
-              <h3 className="text-5xl font-display font-bold mb-2">{coaches[0].name}</h3>
-              <p className="text-xl text-white/60 mb-8 font-medium">{coaches[0].role}</p>
-              
-              <div className="flex flex-wrap justify-center gap-4 mb-10">
-                {coaches[0].credentials.map((cred, i) => (
-                  <span key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-300">
-                    {cred}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="relative bg-card p-8 md:p-12 border border-white/5 rounded-lg">
-                <Quote className="absolute top-8 left-8 w-8 h-8 text-primary/20" />
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed italic relative z-10">
-                  "Health is wealth. Fitness is not just about the body; it's about discipline, mental strength, and building a lifestyle that lasts. My goal is to guide you through a journey of transformation that goes beyond the gym walls."
-                </p>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-2">{coaches[0].role}</p>
+                  <h3 className="text-4xl md:text-6xl font-display font-bold text-white mb-4 uppercase tracking-tight">
+                    {coaches[0].name}
+                  </h3>
+                  <p className="text-white/70 text-lg leading-relaxed">
+                    {coaches[0].description}
+                  </p>
+                </div>
+
+                {/* Credentials */}
+                <div className="space-y-3">
+                  {coaches[0].credentials.map((cred, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0" />
+                      <p className="text-white/80 font-medium text-sm uppercase tracking-wide">{cred}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <div className="bg-white/5 border-l-4 border-primary p-6 mt-8">
+                  <p className="text-white/80 italic leading-relaxed">
+                    "{coaches[0].quote}"
+                  </p>
+                </div>
               </div>
             </motion.div>
-          </div>
-
-          {/* Senior Team Grid */}
-          <div>
-            <div className="flex items-center gap-4 mb-12 justify-center">
-              <div className="h-px bg-white/10 w-24" />
-              <span className="text-white/40 font-bold uppercase tracking-widest">Senior Coaching Team</span>
-              <div className="h-px bg-white/10 w-24" />
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {coaches.slice(1).map((coach, index) => (
-                <motion.div
-                  key={coach.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  className="bg-card border border-white/5 p-8 hover:border-primary/30 transition-colors group text-center"
-                >
-                  <h3 className="text-2xl font-display font-bold mb-2 text-white group-hover:text-primary transition-colors">{coach.name}</h3>
-                  <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6">{coach.role}</p>
-                  
-                  <div className="h-px w-12 bg-white/10 mx-auto mb-6" />
-                  
-                  <ul className="space-y-3">
-                    {coach.credentials.map((cred, i) => (
-                      <li key={i} className="text-sm text-gray-400">
-                        {cred}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
+
+        {/* Senior Trainers Section */}
+        <div>
+          <div className="flex items-center gap-4 mb-12 justify-center">
+            <div className="h-px bg-gradient-to-r from-transparent to-white/20 w-full max-w-[150px]" />
+            <h3 className="text-white font-display font-bold uppercase tracking-widest text-xl whitespace-nowrap">
+              Senior Trainers
+            </h3>
+            <div className="h-px bg-gradient-to-l from-transparent to-white/20 w-full max-w-[150px]" />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {coaches.slice(1).map((coach, index) => (
+              <motion.div
+                key={coach.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="group bg-card border border-white/10 hover:border-primary/50 transition-all duration-500 overflow-hidden"
+              >
+                {/* Top Accent Bar */}
+                <div className="h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+
+                <div className="p-8">
+                  <div className="text-center mb-6">
+                    <h4 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 uppercase tracking-tight group-hover:text-primary transition-colors">
+                      {coach.name}
+                    </h4>
+                    <p className="text-primary/70 text-xs font-bold uppercase tracking-[0.3em]">
+                      {coach.role}
+                    </p>
+                  </div>
+
+                  <div className="space-y-3">
+                    {coach.credentials.map((cred, i) => (
+                      <div key={i} className="flex items-start gap-3 pb-3 border-b border-white/5 last:border-0">
+                        <div className="w-1 h-1 bg-primary rounded-full mt-2 shrink-0" />
+                        <p className="text-white/70 text-sm">{cred}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

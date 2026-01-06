@@ -26,64 +26,49 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-white/10" data-testid="navbar">
-      <div className="container mx-auto px-4 h-24 flex items-center justify-between">
+      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/">
-          <a className="flex items-center gap-3" data-testid="link-logo">
-            <img src={logoImage} alt="Fit Fab Logo" className="h-16 w-16 rounded-full border-2 border-primary/20" />
-            <div className="flex flex-col">
-              <span className="text-2xl md:text-3xl font-display font-bold text-white tracking-tight leading-none">
-                FIT FAB
-              </span>
-              <span className="text-[10px] md:text-xs text-primary font-bold tracking-[0.2em] uppercase">
-                Family Fitness Studio
-              </span>
-            </div>
+          <a className="flex items-center" data-testid="link-logo">
+            <span className="text-2xl md:text-3xl font-display font-black text-white tracking-tighter uppercase transition-colors hover:text-primary">
+              FIT <span className="text-primary">FAB</span>
+            </span>
           </a>
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-8">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest text-white/90"
-              data-testid={`link-desktop-${link.label}`}
-            >
-              {link.label}
-            </a>
-          ))}
-          <Button variant="default" className="font-bold uppercase px-6" data-testid="button-join-desktop" onClick={scrollToContact}>
-            Join Now
-          </Button>
-        </div>
-
-        {/* Mobile Menu */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="icon" className="h-12 w-12" data-testid="button-menu">
-              <Menu className="h-8 w-8" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] bg-card border-l border-white/10">
-            <div className="flex flex-col gap-8 mt-8">
-              {links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-xl font-display font-bold hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
-                  data-testid={`link-mobile-${link.label}`}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <Button className="w-full font-bold uppercase" data-testid="button-join-mobile" onClick={() => { setIsOpen(false); scrollToContact(); }}>
-                Join Now
+        <div className="flex items-center gap-4">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="h-10 w-10 text-white hover:text-primary transition-colors group" data-testid="button-menu">
+                <Menu className="h-7 w-7 transition-transform group-hover:scale-110" />
               </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-full sm:w-[400px] bg-black/95 backdrop-blur-xl border-l border-white/10 flex flex-col justify-center p-12">
+              <div className="flex flex-col gap-10">
+                {links.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-4xl sm:text-5xl font-display font-black text-white hover:text-primary transition-all uppercase tracking-tighter leading-none"
+                    onClick={() => setIsOpen(false)}
+                    data-testid={`link-mobile-${link.label}`}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+
+                <div className="mt-8 pt-8 border-t border-white/10">
+                  <Button
+                    className="w-full sm:w-auto px-10 py-6 text-lg font-black uppercase tracking-widest rounded-none"
+                    data-testid="button-join-mobile"
+                    onClick={() => { setIsOpen(false); scrollToContact(); }}
+                  >
+                    Join The Club
+                  </Button>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </nav>
   );
@@ -103,7 +88,7 @@ export function Footer() {
               Fit Fab Family Fitness Studio is a premium, family-focused fitness center dedicated to disciplined training, measurable results, and long-term health.
             </p>
           </div>
-          
+
           <div>
             <h3 className="text-xl font-bold mb-6 text-primary uppercase tracking-wider">Contact Us</h3>
             <div className="space-y-4 text-muted-foreground">
@@ -147,19 +132,19 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-6 text-primary uppercase tracking-wider">Location</h3>
             <div className="aspect-square w-full rounded-sm overflow-hidden border border-white/10 bg-black/50 h-[300px]">
-               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.829871790484!2d75.83401737586676!3d11.199342988975344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b6e6f6f6f6f%3A0x6f6f6f6f6f6f6f6f!2sFit+Fab+Family+Fitness+Studio!5e0!3m2!1sen!2sin!4v1715580000000!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.829871790484!2d75.83401737586676!3d11.199342988975344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b6e6f6f6f6f%3A0x6f6f6f6f6f6f6f6f!2sFit+Fab+Family+Fitness+Studio!5e0!3m2!1sen!2sin!4v1715580000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-white/5 pt-8 text-center text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} Fit Fab Family Fitness Studio. All rights reserved.
         </div>
