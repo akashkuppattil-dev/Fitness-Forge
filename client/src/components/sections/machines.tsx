@@ -1,98 +1,82 @@
 import { motion } from "framer-motion";
-import { Dumbbell, Shield, Target, Users, Check } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import machineImg from "@assets/stock_images/gym_equipment_dumbbe_2f4d4039.jpg";
 
 const features = [
     {
-        icon: Dumbbell,
         title: "Plate-Loaded Strength",
-        desc: "Natural movement patterns and progressive overload. Build strength with joint-friendly control."
+        desc: "Natural movement patterns and progressive overload. Pure resistance without mechanical friction."
     },
     {
-        icon: Shield,
-        title: "Selectorized Machines",
-        desc: "Smooth, precise resistance with easy adjustment—perfect for focused training progression."
+        title: "Selectorized Precision",
+        desc: "Smooth, precise resistance with rapid adjustment. Engineered for isolation and intensity."
     },
     {
-        icon: Target,
-        title: "Upper-Body Systems",
-        desc: "Chest, back, shoulders, and arms trained with consistent resistance and posture support."
-    },
-    {
-        icon: Users,
-        title: "Lower-Body Power",
-        desc: "Leg press, extension, and curl systems engineered for stability and powerful development."
+        title: "Performance Racks",
+        desc: "Structural integrity for compound movements. Built to handle elite-level output."
     }
-];
-
-const benefits = [
-    { title: "Correct Technique", desc: "Guided movement patterns ensure proper form" },
-    { title: "Injury Prevention", desc: "Controlled resistance reduces risk" },
-    { title: "Consistent Progress", desc: "Track and measure every workout" },
-    { title: "All Levels Welcome", desc: "Beginner to advanced athletes" }
 ];
 
 export function Machines() {
     return (
-        <section className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
+        <section className="py-10 bg-background relative" id="machines">
             <div className="container mx-auto px-4">
 
                 {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <div className="inline-flex items-center gap-2 mb-4">
-                        <div className="h-0.5 w-8 bg-primary" />
-                        <span className="text-primary font-bold tracking-[0.2em] uppercase text-sm">Section 1</span>
-                        <div className="h-0.5 w-8 bg-primary" />
-                    </div>
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white uppercase tracking-tight mb-6">
-                        Professional Gym <span className="text-primary">Machines</span>
-                    </h2>
-                    <p className="text-xl md:text-2xl font-display font-bold text-white/70 uppercase tracking-wide mb-4">
-                        Engineered for precision. Built for results.
-                    </p>
-                    <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
-                        Our gym is equipped with professionally selected strength machines designed to support correct biomechanics,
-                        controlled movement, and long-term progress. Every machine is chosen to help members train safely, efficiently,
-                        and consistently—from beginners to advanced athletes.
-                    </p>
-                </motion.div>
+                <div className="mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col md:flex-row md:items-end justify-between gap-8"
+                    >
+                        <div className="max-w-3xl space-y-6">
+                            <div className="flex items-center gap-4">
+                                <div className="h-px w-12 bg-primary"></div>
+                                <span className="text-primary font-bold tracking-[0.2em] uppercase text-sm">The Arsenal</span>
+                            </div>
+                            <h2 className="text-4xl md:text-6xl font-display font-black text-white uppercase tracking-tighter leading-none">
+                                Tools of <span className="text-primary italic">Performance.</span>
+                            </h2>
+                        </div>
+                    </motion.div>
+                </div>
 
-                {/* Main Content Grid */}
-                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
 
-                    {/* Left: Image */}
+                    {/* Visual side */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative h-[300px] sm:h-[400px] lg:h-[600px] overflow-hidden"
+                        className="relative aspect-square lg:aspect-[4/5] overflow-hidden group border border-white/5 bg-white/5"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10" />
                         <img
                             src={machineImg}
                             alt="Professional Gym Equipment"
-                            className="w-full h-full object-cover grayscale"
+                            className="w-full h-full object-cover transition-all duration-1000"
                         />
-                        <div className="absolute bottom-8 left-8 z-20">
-                            <p className="text-white font-display font-bold text-xl uppercase tracking-wider border-l-4 border-primary pl-4">
-                                Quality machines<br />create disciplined<br />training.
+                        <div className="absolute inset-x-0 bottom-0 p-12 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+                            <span className="text-[10px] text-primary font-bold uppercase tracking-[0.4em] mb-4 block">Hardware Integrity</span>
+                            <p className="text-3xl font-display font-bold text-white uppercase tracking-tighter italic">
+                                Built to Endure. <br />Designed to Evolve.
                             </p>
                         </div>
                     </motion.div>
 
-                    {/* Right: Features Grid */}
-                    <div className="space-y-8">
-                        <h3 className="text-2xl md:text-3xl font-display font-bold text-white uppercase mb-8">
-                            What Our Machine Floor Offers
-                        </h3>
-
+                    {/* Content side */}
+                    <div className="space-y-12">
                         <div className="space-y-6">
+                            <h3 className="text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-tight">
+                                Professional Grade Biomechanics.
+                            </h3>
+                            <p className="text-lg text-white/50 leading-relaxed">
+                                We select equipment based on joint-friendly leverage and consistent resistance curves. Every rep counts more when the machine works with you, not against you.
+                            </p>
+                        </div>
+
+                        <div className="grid gap-8">
                             {features.map((feature, index) => (
                                 <motion.div
                                     key={feature.title}
@@ -100,55 +84,33 @@ export function Machines() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
-                                    className="flex gap-4 items-start group"
+                                    className="flex gap-6 items-start pb-8 border-b border-white/5 last:border-0"
                                 >
-                                    <div className="bg-primary/10 p-3 rounded-sm border border-primary/20 group-hover:bg-primary/20 transition-colors shrink-0">
-                                        <feature.icon className="w-6 h-6 text-primary" />
+                                    <div className="bg-primary/10 p-2 border border-primary/20 shrink-0">
+                                        <CheckCircle2 className="w-5 h-5 text-primary" />
                                     </div>
-                                    <div>
-                                        <h4 className="font-display font-bold text-white text-lg uppercase mb-2">{feature.title}</h4>
-                                        <p className="text-muted-foreground">{feature.desc}</p>
+                                    <div className="space-y-2">
+                                        <h4 className="font-display font-bold text-white text-xl uppercase tracking-wide italic">{feature.title}</h4>
+                                        <p className="text-white/40 text-sm leading-relaxed">{feature.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
+
+                        <div className="pt-8">
+                            <div className="p-8 bg-card border border-white/5 relative overflow-hidden group">
+                                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <h4 className="text-white font-display font-bold uppercase tracking-widest text-xs mb-4">The Standard</h4>
+                                <p className="text-white/60 text-sm italic leading-relaxed">
+                                    "Training with precision tools ensures you build strength that stays, without the attrition of poorly designed mechanics."
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                {/* Why It Matters - Redesigned */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="bg-gradient-to-br from-primary/10 to-transparent border-l-4 border-primary p-8 lg:p-12"
-                >
-                    <h3 className="text-2xl md:text-3xl font-display font-bold text-white uppercase mb-8">
-                        Why Machine Training Matters
-                    </h3>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {benefits.map((benefit, index) => (
-                            <motion.div
-                                key={benefit.title}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="flex gap-4 items-start bg-black/30 p-4 border border-white/5"
-                            >
-                                <div className="bg-primary/20 p-2 rounded-full shrink-0">
-                                    <Check className="w-5 h-5 text-primary" />
-                                </div>
-                                <div>
-                                    <h4 className="font-display font-bold text-white uppercase text-sm mb-1">{benefit.title}</h4>
-                                    <p className="text-white/60 text-xs">{benefit.desc}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
 
             </div>
         </section>
     );
 }
+

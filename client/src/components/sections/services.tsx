@@ -1,146 +1,153 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import gymImg from "@assets/program_gym.png";
 import crossfitImg from "@assets/program_crossfit.png";
 import zumbaImg from "@assets/program_zumba.png";
 import aerobicsImg from "@assets/program_aerobics.png";
 
-const programs = [
+const services = [
   {
-    title: "CrossFit / Functional",
-    short: "Train like an athlete.",
-    desc: "High-intensity functional training that challenges the body through constantly varied movements. Ideal for members seeking full-body performance and conditioning.",
-    bullets: ["Endurance", "Stamina", "Explosive power"],
-    image: crossfitImg
+    title: "Strength & Conditioning",
+    benefit: "Build explosive power and elite-level durability.",
+    desc: "Our methodology focuses on compound movements and progressive overload, ensuring you build a foundation that lasts.",
+    features: ["Heavy Compound Lifting", "Performance Conditioning", "Olympic Lifting Platform"],
+    image: crossfitImg,
+    align: "left"
   },
   {
-    title: "Zumba",
-    short: "Fitness like celebration.",
-    desc: "A high-energy, dance-based workout combining cardio training and rhythmic movement. Perfect for those who enjoy fun, music-driven workouts.",
-    bullets: ["Improved cardiovascular health", "High calorie burn", "Stress relief"],
-    image: zumbaImg
+    title: "Fat Loss & Conditioning",
+    benefit: "High-intensity output for metabolic efficiency.",
+    desc: "A systematic approach to body composition. We combine resistance training with energy system development.",
+    features: ["Metabolic Circuitry", "Sprinting & HIIT", "Nutrition Foundations"],
+    image: gymImg,
+    align: "right"
   },
   {
-    title: "Aerobics",
-    short: "Move better. Feel stronger.",
-    desc: "Structured group workouts designed to improve flexibility and coordination. An excellent choice for balanced, full-body conditioning in a guided group setting.",
-    bullets: ["Cardiovascular fitness", "Muscular endurance", "Flexibility & coordination"],
-    image: aerobicsImg
+    title: "Mobility & Movement",
+    benefit: "Unlock range of motion and joint health.",
+    desc: "Strength is useless without the ability to move freely. Focus on longevity and preventing injury through better mechanics.",
+    features: ["Functional Range Conditioning", "Postural Realignment", "Corrective Exercise"],
+    image: aerobicsImg,
+    align: "left"
   },
   {
-    title: "Gym (Strength Training)",
-    short: "Precision. Power. Progress.",
-    desc: "A state-of-the-art strength training facility equipped with premium, biomechanically advanced machines. Focused on strength development, muscle hypertrophy, and overall conditioning.",
-    bullets: ["Strength development", "Muscle hypertrophy", "Overall conditioning"],
-    image: gymImg
+    title: "Personal Coaching Support",
+    benefit: "Professional guidance for every rep.",
+    desc: "No member is left to figure it out alone. Our coaches ensure technique is prioritized over ego.",
+    features: ["Form Correction", "Program Design", "Progress Tracking"],
+    image: zumbaImg,
+    align: "right"
   }
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
-};
-
 export function Services() {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-background relative" id="services">
+    <section className="py-10 bg-background relative" id="services">
       <div className="container mx-auto px-4">
 
         {/* Header Section */}
-        <div className="mb-20 text-center max-w-3xl mx-auto">
+        <div className="mb-24">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="flex flex-col md:flex-row md:items-end justify-between gap-8"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-white uppercase tracking-tighter">
-              Premium <span className="text-primary">Programs</span>
-            </h2>
-            <div className="w-16 h-1 bg-primary mx-auto" />
-            <h3 className="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-widest">
-              Train with purpose. Perform with confidence.
-            </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed font-light">
-              Experience a complete fitness ecosystem designed to build strength, endurance, and total-body performance—guided by structure, discipline, and professional coaching.
-            </p>
+            <div className="max-w-3xl space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="h-px w-12 bg-primary"></div>
+                <span className="text-primary font-bold tracking-[0.2em] uppercase text-sm">Our Expertise</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-display font-black text-white uppercase tracking-tighter leading-none">
+                Training That <span className="text-primary italic">Delivers.</span>
+              </h2>
+              <p className="text-xl text-white/50 font-light leading-relaxed">
+                We don't just provide space; we provide a methodology. Every program is designed for maximum efficiency and real-world performance.
+              </p>
+            </div>
           </motion.div>
         </div>
 
-        {/* Programs Grid */}
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          {programs.map((program) => (
+        {/* Services List */}
+        <div className="space-y-20 md:space-y-32">
+          {services.map((service, index) => (
             <motion.div
-              key={program.title}
-              variants={item}
-              className="group bg-card border border-white/5 overflow-hidden flex flex-col h-full hover:border-primary/50 transition-all duration-300"
+              key={service.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className={`flex flex-col ${service.align === 'right' ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-20 items-center`}
             >
-              {/* Image Header */}
-              <div className="relative h-48 md:h-56 overflow-hidden">
-                <img
-                  src={program.image}
-                  alt={program.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
-
-                {/* Overlay Text */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-xs font-bold text-primary uppercase tracking-widest mb-1 block">
-                    {program.short}
-                  </span>
-                  <h3 className="text-xl font-display font-bold text-white uppercase leading-none">
-                    {program.title}
-                  </h3>
+              {/* Image Side */}
+              <div className="w-full lg:w-1/2">
+                <div className="relative aspect-video lg:aspect-square overflow-hidden bg-white/5 group">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                  />
                 </div>
               </div>
 
-              {/* Content Body */}
-              <div className="p-6 flex flex-col flex-grow">
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                  {program.desc}
+              {/* Content Side */}
+              <div className="w-full lg:w-1/2 space-y-6 md:space-y-8 text-center lg:text-left">
+                <div className="space-y-2 md:space-y-4">
+                  <h3 className="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-primary font-display font-bold text-lg md:text-xl uppercase italic tracking-wide">
+                    {service.benefit}
+                  </p>
+                </div>
+
+                <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  {service.desc}
                 </p>
 
-                <ul className="space-y-2 mt-auto">
-                  {program.bullets.map((bullet, i) => (
-                    <li key={i} className="flex items-center gap-2 text-xs text-white/80 uppercase font-bold tracking-wider">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      {bullet}
+                <ul className="grid sm:grid-cols-2 gap-4 pt-4">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3 text-sm text-white/80 font-medium tracking-wide">
+                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                      {feature}
                     </li>
                   ))}
                 </ul>
+
+                <div className="pt-6">
+                  <Link href="#contact">
+                    <a className="inline-flex items-center gap-4 group text-white font-bold uppercase tracking-widest text-sm py-4 px-8 border border-white/10 hover:border-primary hover:text-primary transition-all">
+                      Learn Methodology <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Optional CTA */}
+        {/* Closing CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mt-20 lg:mt-32 p-8 lg:p-20 bg-card border border-white/5 text-center space-y-6 md:space-y-8"
         >
-          <p className="text-white/50 text-sm font-bold uppercase tracking-widest mb-6">Ready to start training the right way?</p>
-          <a href="#contact" className="inline-flex items-center justify-center gap-2 bg-primary text-black px-6 sm:px-8 py-3 sm:py-4 font-bold text-base sm:text-lg uppercase tracking-wider hover:bg-white transition-colors w-full sm:w-auto rounded-md">
-            Join Now <ArrowRight className="w-4 h-4" />
-          </a>
+          <h3 className="text-2xl md:text-5xl font-display font-black text-white uppercase tracking-tighter">
+            Choose Discipline Over <span className="text-primary">Shortcuts.</span>
+          </h3>
+          <p className="text-sm md:text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
+            Our facility is built for those who value proper form and consistent progress. If you're ready to train with purpose, we're ready to guide you.
+          </p>
+          <div className="pt-4 px-4">
+            <a href="tel:+919497306050" className="inline-block w-full sm:w-auto bg-primary text-black px-12 py-5 font-bold uppercase tracking-widest text-base md:text-lg hover:bg-white transition-colors">
+              Request Training Detail
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 }
+

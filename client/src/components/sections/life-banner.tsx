@@ -3,36 +3,34 @@ import lifeBanner from "@assets/its_life_banner.png";
 
 export function LifeBanner() {
     return (
-        <section className="py-12 sm:py-16 lg:py-24 bg-black relative overflow-hidden">
+        <section className="py-6 sm:py-8 lg:py-12 bg-black relative overflow-hidden">
             <div className="container mx-auto px-4">
 
-                {/* Image Container with Zoom Effect */}
+                {/* Image Container with Fixed Zoom Effect */}
                 <motion.div
                     initial={{ opacity: 0, scale: 1.2 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.3 }}
                     transition={{
                         duration: 1.5,
                         ease: [0.22, 1, 0.36, 1]
                     }}
                     className="flex justify-center items-center overflow-hidden"
                 >
-                    <motion.img
+                    <img
                         src={lifeBanner}
                         alt="It's Not Fitness. It's Life."
-                        className="w-full max-w-5xl h-auto"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.6 }}
+                        className="w-full max-w-4xl h-auto rounded-xl border border-white/5"
                     />
                 </motion.div>
 
                 {/* Animated Subtitle */}
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8, duration: 0.8 }}
-                    className="text-center text-white/50 text-sm uppercase tracking-[0.3em] mt-8 font-bold"
+                    className="text-center text-white/40 text-[10px] md:text-xs uppercase tracking-[0.4em] mt-6 font-bold"
                 >
                     A Philosophy, Not A Trend
                 </motion.p>
