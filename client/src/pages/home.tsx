@@ -1,14 +1,14 @@
-import { Navbar } from "@/components/layout";
 import { Footer } from "@/components/footer";
-import { Hero } from "@/components/sections/hero";
-import { LifeBanner } from "@/components/sections/life-banner";
+import { Navbar } from "@/components/layout";
 import { About } from "@/components/sections/about";
-import { Services } from "@/components/sections/services";
-import { Facility } from "@/components/sections/facility";
-import { Machines } from "@/components/sections/machines";
-import { Legends } from "@/components/sections/legends";
-import { Team } from "@/components/sections/team";
 import { Contact } from "@/components/sections/contact";
+import { Facility } from "@/components/sections/facility";
+import { Hero } from "@/components/sections/hero";
+import { Legends } from "@/components/sections/legends";
+import { LifeBanner } from "@/components/sections/life-banner";
+import { Machines } from "@/components/sections/machines";
+import { Services } from "@/components/sections/services";
+import { Team } from "@/components/sections/team";
 import { WhatsAppBot } from "@/components/whatsapp-bot";
 
 export default function Home() {
